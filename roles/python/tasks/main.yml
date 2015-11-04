@@ -1,0 +1,13 @@
+- name: install python-related packages debian/ubuntu
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - python3.4-venv
+    - python-pip
+  when: ansible_os_family == "Debian"
+
+# Install ansible and deploy your site
+- name: upgrade pip
+  pip: name=pip extra_args=--upgrade
+
+- name: install ansible
+  pip: name=ansible

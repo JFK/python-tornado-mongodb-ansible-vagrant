@@ -1,0 +1,16 @@
+- name: update apt package cache
+  apt: update_cache=yes
+  when: ansible_os_family == "Debian"
+
+- name: install common packages debian/ubuntu
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - build-essential
+    - python
+    - python-dev
+    - python-setuptools
+    - git-core
+    - ntp
+    - supervisor
+    - redis-server
+  when: ansible_os_family == "Debian"
