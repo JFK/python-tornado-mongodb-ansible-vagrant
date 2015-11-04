@@ -1,11 +1,24 @@
 # python-tornado-mongodb-ansible-vagrant
 
+## Preparation
+
+* Vagrant
+* ansible
+
 ## Let's get rolling!
 
 Before run ```vagrant up```, you may need to do...
 
 ```
 $ echo 'ForwardAgent=yes' >> ~/.ssh/config
+```
+
+Setup
+
+```
+$ git clone git@github.com:JFK/python-tornado-mongodb-ansible-vagrant.git
+$ cd python-tornado-mongodb-ansible-vagrant
+$ vagrant up
 ```
 
 In order to access the site, configure hosts file.
