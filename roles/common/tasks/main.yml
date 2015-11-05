@@ -9,6 +9,7 @@
     - python
     - python-dev
     - python-setuptools
+    - python3-dev
     - git-core
     - ntp
     - supervisor
