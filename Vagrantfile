@@ -7,7 +7,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.customize ["modifyvm", :id, "--usb", "off"]
         vb.customize ["modifyvm", :id, "--usbehci", "off"]
     end
-    config.ssh.insert_key = false
     config.ssh.forward_agent = true
     config.vm.define "site" do |site|
         site.vm.box = "ARTACK/debian-jessie"

@@ -10,7 +10,8 @@
 Before run ```vagrant up```, you may need to do...
 
 ```
-$ echo 'ForwardAgent=yes' >> ~/.ssh/config
+$ ssh-add  ~/.ssh/id_rsa
+$ echo 'ForwardAgent yes' >> ~/.ssh/config
 ```
 
 Setup
