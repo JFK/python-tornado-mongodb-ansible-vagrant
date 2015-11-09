@@ -1,0 +1,27 @@
+---
+- name: Install vim and build-deb
+  action: shell apt-get -y build-dep vim executable=/bin/bash
+  when: ansible_os_family == "Debian"
+
+- name: Create src directory
+  action: shell mkdir -p src/vim executable=/bin/bash chdir={{ home_dir }}
+  sudo: no
+
+- name: Download vim source
+  action: shell apt-get source vim executable=/bin/bash chdir={{ home_dir }}/src/vim
+  sudo: no
+
+- name: Update debian/rules
+  action: shell sed -i -e 's/ALLINTERPFLAGS+=--enable-pythoninterp --with-python-config-dir=$(shell python-config --configdir)/ALLINTERPFLAGS+=--enable-pythoninterp=dynamic --with-python-config-dir=$(shell python-config --configdir)/' vim-*/debian/rules executable=/bin/bash chdir={{ home_dir }}/src/vim
+  sudo: no
+
+- name: Update debian/rules
+  action: shell sed -i -e 's/ALLINTERPFLAGS+=--disable-python3interp/ALLINTERPFLAGS+=--enable-python3interp=dynamic --with-python3-config-dir=$(shell python3-config --configdir)/' vim-*/debian/rules executable=/bin/bash chdir={{ home_dir }}/src/vim
+  sudo: no
+
+- name: Build vim
+  action: shell cd vim-* && DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -rfakeroot -us -uc -b executable=/bin/bash chdir={{ home_dir }}/src/vim
+  sudo: no
+
+- name: Install vim
+  action: shell dpkg -i vim-*.deb executable=/bin/bash chdir={{ home_dir }}/src/vim

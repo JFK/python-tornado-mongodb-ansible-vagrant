@@ -2,12 +2,18 @@
   sudo: True
   vars:
     server_name: www.local
+    home_dir: /home/vagrant
     work_dir: /home/vagrant/works
     git_repos: git@github.com:JFK/python-tornado-site-template.git
+    timezone: Asia/Tokyo
+    lang: ja_JP.UTF-8
   roles:
     - common
     - python
+    - vim
+    - ntp
     - role: nginx
       nginx_sites: none
+    - redis
     - mongod
     - www
