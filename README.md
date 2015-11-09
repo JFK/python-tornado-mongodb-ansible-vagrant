@@ -5,6 +5,16 @@
 * Vagrant
 * ansible
 
+## What gets installed:
+
+* Python3.4
+* vim with python3 support
+* Python3, Pip & VirtualEnv
+* ntp
+* mongodb
+* redis
+* Nignx
+
 ## Let's get rolling!
 
 Before run ```vagrant up```, you may need to do...
