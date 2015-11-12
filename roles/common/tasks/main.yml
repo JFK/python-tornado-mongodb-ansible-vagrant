@@ -9,6 +9,9 @@
     - build-essential
     - git-core
     - supervisor
+
+- name: install the locales package
+  apt: pkg=locales state=present
   when: ansible_os_family == "Debian"
 
 - name: update locale lang
