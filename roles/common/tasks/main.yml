@@ -15,9 +15,9 @@
   when: ansible_os_family == "Debian"
 
 - name: ensure the locale exists
-  command: /usr/sbin/locale-gen {{ locale }}
+  command: /usr/sbin/locale-gen {{ lang }}
   when: ansible_os_family == "Debian"
 
 - name: set the locale
-  command: /usr/sbin/update-locale LANG={{ locale }} --reset
+  command: /usr/sbin/update-locale LANG={{ lang }} --reset
   when: ansible_os_family == "Debian"
