@@ -14,6 +14,10 @@
   apt: pkg=locales state=present
   when: ansible_os_family == "Debian"
 
-- name: update locale lang
-  locale_gen: name={{ lang }} state=present
+- name: ensure the locale exists
+  command: /usr/sbin/locale-gen {{ locale }}
+  when: ansible_os_family == "Debian"
+
+- name: set the locale
+  command: /usr/sbin/update-locale LANG={{ locale }} --reset
   when: ansible_os_family == "Debian"
