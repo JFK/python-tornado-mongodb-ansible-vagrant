@@ -1,5 +1,7 @@
 # python-tornado-mongodb-ansible-vagrant
 
+[![Build status](https://travis-ci.org/JFK/python-tornado-mongodb-ansible-vagrant.svg?branch=master)](https://travis-ci.org/JFK/python-tornado-mongodb-ansible-vagrant)
+
 ## Preparation
 
 * Vagrant
