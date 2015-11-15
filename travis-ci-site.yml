@@ -17,4 +17,4 @@
       nginx_sites: none
     - redis
     - mongod
-    - www
+    #- www
